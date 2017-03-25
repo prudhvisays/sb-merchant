@@ -80,7 +80,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                   {/*<Flatpickr*/}
                                     {/*className="form-control" id="date-input"*/}
                                     {/*data-enable-time*/}
-                                    {/*placeholder={'Pickup Before'}*/}
+                                    {/*placeholder={'Pickup  Before'}*/}
                                     {/*onChange={this.calendarChange}*/}
                                     {/*value={ stateAddTask.pickup.to_date ? moment(stateAddTask.pickup.to_date).format() : ''}*/}
                                     {/*options={{enableTime: true}}*/}
