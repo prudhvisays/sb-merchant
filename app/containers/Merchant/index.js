@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AuthStyle from './AuthStyle';
 import BackgrndStyle from './BackgrndStyle';
 import AuthForm from '../../components/AuthForm';
+import LoginForm from './LoginForm';
 import CurveStyle from './CurveStyle';
 import LogoStyles from './LogoStyles';
 import LoadingStyle from './LoadingStyle';
@@ -15,17 +16,9 @@ class MerchantPage extends React.Component { // eslint-disable-line react/prefer
     const { formState, currentlySending, error } = this.props.data;
     return (
       <BackgrndStyle>
-        <CurveStyle>
-          { !currentlySending ? <div className="ink-flex push-center">
-            <AuthStyle className="all-50">
-              <LogoStyles className="ink-flex push-center">
-                <img src={Logo} className="logo" alt="logo" />
-              </LogoStyles>
-              <AuthForm data={formState} onSubmit={this.props.login} stateError={error} userRole={'CUSTOMER'} />
-            </AuthStyle>
-          </div> : <LoadingStyle className="ink-flex push-center">
-            <img src={Loading} alt="loading" />
-          </LoadingStyle>}
+        <CurveStyle className="d-flex flex-column align-items-center justify-content-around">
+            {!currentlySending ? <img className="img-logo" src={Logo}/> : <img src={Loading} alt="loading" />}
+            {!currentlySending ? <AuthForm data={formState} onSubmit={this.props.login} stateError={error} userRole={'CUSTOMER'} /> : null}
         </CurveStyle>
       </BackgrndStyle>
     );

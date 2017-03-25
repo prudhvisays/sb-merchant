@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-const BackgrndStyle = styled.section`
+const CurveStyle = styled.section`
 position: relative;
-height: 300px;
+height: 100vh;
 background: #6bc9c5;
-border-bottom-left-radius: 50% 30%;
-border-bottom-right-radius: 50% 30%;
+img{
+    height: 150px;
+    width: 150px;
+}
 `;
 
-export default BackgrndStyle;
+export default CurveStyle;
