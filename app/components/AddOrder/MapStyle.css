@@ -1,0 +1,14 @@
+.locField, #controls {
+        width: 100%;
+      }
+      .place-search {
+        width: 100%;
+      }
+      .pac-container{
+        height: 18%;
+        overflow-y: scroll;
+        /*background: rgb(31, 37, 61);*/
+      }
+      /*.pac-item:hover{*/
+        /*background: #fff;*/
+      /*}*/

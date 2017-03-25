@@ -1,0 +1,22 @@
+import React from 'react';
+import { connect } from 'react-redux';
+class Tab extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick(e) {
+        e.preventDefault();
+        this.props.handleClick();
+    }
+    render() {
+        return (
+                <a className={this.props.isCurrent ? 'nav-link active' : 'nav-link'} onClick={this.handleClick}>
+                    {this.props.name}
+                </a>
+        );
+    }
+}
+
+
+export default Tab;
