@@ -29,4 +29,4 @@ deploy:
   provider: heroku
   api_key:
     secure: 986dce4f-759e-40f7-8cb8-2ba058b4a19c
-  app: season-boy
+  app: seasonboy-merchant
