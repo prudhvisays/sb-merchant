@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import TabStyle from './TabStyle';
 class Tab extends React.Component {
     constructor(props){
         super(props);
@@ -11,9 +12,9 @@ class Tab extends React.Component {
     }
     render() {
         return (
-                <a className={this.props.isCurrent ? 'nav-link active' : 'nav-link'} onClick={this.handleClick}>
+                <TabStyle className={this.props.isCurrent ? 'nav-link active' : 'nav-link'} onClick={this.handleClick}>
                     {this.props.name}
-                </a>
+                </TabStyle>
         );
     }
 }

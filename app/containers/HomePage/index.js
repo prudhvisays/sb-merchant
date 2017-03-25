@@ -66,6 +66,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                     { !this.props.addOrderComponent ? <Tabs
                             orderList={this.props.orderList}
                             openAccordion={this.props.openAccordion}
+                            tabSelection={this.props.tabSelection}
                         /> : <AddOrder
                             addTaskInfo={this.props.addTaskInfo}
                             deliveryChange={this.props.deliveryChange}
@@ -120,6 +121,7 @@ export function mapDispatchToProps(dispatch) {
     pilotSelect: (data) => { dispatch(actions.pilotSelect(data)); },
     getPilotDetail: (id) => { dispatch(actions.getPilotDetail(id)); },
     triggerAddOrderComponent: () => { dispatch(actions.triggerAddOrderComponent()); },
+    tabSelection: (data) => { dispatch(actions.tabSelection(data)); },
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

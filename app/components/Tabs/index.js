@@ -25,6 +25,7 @@ class OrderTabs extends React.Component {
     changeTab(tab) {
         console.log(tab)
         this.setState({ currentTab: tab.id })
+        this.props.tabSelection(tab.name)
     }
     render() {
         const{ orderList, openAccordion } = this.props
@@ -35,15 +36,18 @@ class OrderTabs extends React.Component {
                    currentTab={this.state.currentTab}
                    changeTab={this.changeTab}
                />
-                    <div style={{ padding: '1em 3em'}}><div className="table-head row" style={{ background: '#eee' }}>
+                <div style={{ background: '#eee',  boxShadow: '6px 6px 12px 0 rgba(46,61,73,0.15)', lineHeight: '2rem'}}>
+                    <div style={{ padding: '0 3em'}}><div className="table-head row">
                         <div className="col-4">Order Details</div>
                         <div className="col-2">Status</div>
                         <div className="col-2">Value</div>
                         <div className="col-4">Driver Details</div>
                     </div>
-                <div>
+                </div>
+                </div>
+                <div style={{ padding: '0 3em'}}>
                     <TabContent data={orderList} openAccordion={openAccordion} />
-                </div> </div>
+                </div>
             </div>
         );
     }

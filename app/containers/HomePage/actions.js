@@ -222,3 +222,11 @@ export function triggerAddOrderComponent() {
       type: 'TRIGGER_ADD_ORDER_COMPONENT',
     };
 }
+
+// tab selection
+export function tabSelection(data) {
+    return {
+      type: 'TAB_SELECTION',
+      payload: data,
+    }
+}

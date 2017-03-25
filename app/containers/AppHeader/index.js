@@ -26,7 +26,16 @@ class AppHeader extends React.Component {
                     </ul>
                     <div className="form-inline my-2 my-lg-0">
                         <div className="mr-sm-2" >Notifications</div>
-                        <div className="my-2 my-sm-0">Profile</div>
+                        <div className="my-2 my-sm-0">
+                            <div className="dropdown">
+                                <i className="material-icons dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">account_circle</i>
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </AppHeaderStyle>

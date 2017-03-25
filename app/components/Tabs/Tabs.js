@@ -12,7 +12,7 @@ class Tabs extends React.Component {
     }
     render() {
         return (
-            <nav className="nav p-2" style={{ background: '#fff'}}>
+            <nav className="d-flex pl-5" style={{ background: '#fff' }}>
                {this.props.tabList.map(tab => (
                     <Tab
                         key={tab.id}

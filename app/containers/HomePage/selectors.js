@@ -19,14 +19,37 @@ const addTask = () => createSelector(
   homeData(),
     (homeState) => homeState.addTask,
 );
+const selectedTab = () => createSelector(
+    homeData(),
+    (state) => state.selectedTab,
+)
+
 const auto = () => createSelector(
   homeData(),
   (homeState) => homeState.auto,
 );
 
+const filterOrders = (tab, lists) => {
+    if(lists.length > 0) {
+        if(tab === 'Orders') {
+            return lists
+        } else if(tab === 'InProgress') {
+            return lists.filter((list) => list.status === 'ASSIGNED')
+        } else if(tab === 'Completed') {
+            return lists.filter((list) => list.status === 'COMPLETED')
+        } else if(tab === 'UNASSIGNED' || tab === 'FAILED') {
+            return lists.filter((list) => list.status === ('UNASSIGNED' || 'FAILED'))
+        } else {
+            return [];
+        }
+    } else {
+        return [];
+    }
+}
 const orderList = () => createSelector(
+  selectedTab(),
   homeData(),
-  (state) => state.orderList.orders,
+  (tab,state) => filterOrders(tab,state.orderList.orders),
 );
 const statsLength = (lists, value) => {
   if(lists.length > 0) {
@@ -67,4 +90,5 @@ export {
   orderId,
   orderStats,
   addOrderComponent,
+  selectedTab,
 };

@@ -4,6 +4,7 @@ import moment from 'moment';
 const initialState = {
   searchText: '',
   addOrderComponent: false,
+  selectedTab: 'Orders',
   pickupcord: {
     pLat: '',
     pLng: '',
@@ -71,6 +72,11 @@ function homeReducer(state = initialState, action) {
       return { ...state,
         searchText: action.payload,
       };
+      case 'TAB_SELECTION':
+        return {
+            ...state,
+            selectedTab: action.payload,
+        }
     case 'PICKUP_CHANGE':
       return { ...state,
         addTask: {
