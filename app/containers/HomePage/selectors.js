@@ -34,7 +34,7 @@ const filterOrders = (tab, lists) => {
         if(tab === 'Orders') {
             return lists
         } else if(tab === 'InProgress') {
-            return lists.filter((list) => list.status === 'ASSIGNED')
+            return lists.filter((list) => (list.status !== 'COMPLETED' && list.status !== 'FAILED'))
         } else if(tab === 'Completed') {
             return lists.filter((list) => list.status === 'COMPLETED')
         } else if(tab === 'UNASSIGNED' || tab === 'FAILED') {
