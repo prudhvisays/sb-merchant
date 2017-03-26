@@ -46,20 +46,20 @@ constructor(props) {
           className="title row"
           onClick={this.click.bind(null, i._id)}
         >
-         <span className="col-4">
+         <span className="col-3">
              #{i.id}
          </span>
-            <span className="col-2 title-text">
+            <span className="col-3 title-text">
            {i.status}
          </span>
-            <span className="col-2 title-text">
-           {i.final_cost}
-         </span>
-            <span className="col-4 title-text">
+            <span className="col-3 title-text">
            {i.pilot ? i.pilot.user.firstName : null}
          </span>
+            <span className="col-3 title-text">
+           {i.final_cost}
+         </span>
        </div>
-       <div className={i.open
+          { i.open && <div className={i.open
          ? "content content-open"
          : "content"}
         >
@@ -68,7 +68,7 @@ constructor(props) {
             : "content-text"}
           > {<OrderContent data={i}/>}
           </div>
-        </div>
+        </div> }
       </div>
     ));
 

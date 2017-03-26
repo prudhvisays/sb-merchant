@@ -13,6 +13,7 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
             zoom: 11,
         };
         this.handleLeafletLoad = this.handleLeafletLoad.bind(this);
+        this.getBounds = this.getBounds.bind(this);
     }
 
       componentDidMount(){
@@ -29,6 +30,11 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
         }
     }
 
+    getBounds() {
+          if(this.pathMap) {
+              return this.pathMap.leafletElement.getBounds
+          }
+    }
     render() {
         const { pickupCordState, deliveryCordState } = this.props;
         const position = [pickupCordState.pLat, pickupCordState.pLng];

@@ -34,15 +34,15 @@ class OrderTabs extends React.Component {
                    changeTab={this.changeTab}
                />
                 <div style={{ background: '#eee',  boxShadow: '6px 6px 12px 0 rgba(46,61,73,0.15)', lineHeight: '2rem'}}>
-                    <div style={{ padding: '0 3em'}}><div className="table-head row">
-                        <div className="col-4">Order Id</div>
-                        <div className="col-2">Status</div>
-                        <div className="col-2">Value</div>
-                        <div className="col-4">Driver Details</div>
+                    <div style={{ padding: '0 3em' }}><div className="table-head row">
+                        <div className="col-3">Order Id</div>
+                        <div className="col-3">Status</div>
+                        <div className="col-3">Driver Details</div>
+                        <div className="col-3">Cost</div>
                     </div>
                 </div>
                 </div>
-                <div style={{ padding: '0 3em'}}>
+                <div style={{ padding: '0 3em', overflowX: 'hidden', height: '75vh' }}>
                     <TabContent data={orderList} openAccordion={openAccordion} />
                 </div>
             </div>
