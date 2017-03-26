@@ -44,6 +44,7 @@ import * as selectors from './selectors';
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
+    this.timerId;
     this.state = {
       compressed: false,
       pilotState: false,
@@ -55,8 +56,16 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
   componentDidMount() {
     if(!isAdmin()) {
       this.props.getOrder();
+      this.timerId = setInterval(this.props.getOrder, 10000);
     }
   }
+
+  componentWillUnmount() {
+    if (this.timerId) {
+      clearInterval(this.timerId);
+    }
+  }
+
   render() {
     const { compressed, pilotState, orderDetails, groupDisplay, addTask } = this.state;
     return (

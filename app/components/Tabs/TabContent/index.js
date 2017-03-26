@@ -49,13 +49,15 @@ constructor(props) {
          <span className="col-3">
              #{i.id}
          </span>
-            <span className="col-3 title-text">
+         <AccordStyle status={i.status} className="col-3 title-text">
            {i.status}
-         </span>
-            <span className="col-3 title-text">
-           {i.pilot ? i.pilot.user.firstName : null}
-         </span>
-            <span className="col-3 title-text">
+         </AccordStyle>
+
+          <span className="col-3 title-text">
+            {i.pilot ? i.pilot.user.firstName + ' (' +  i.pilot.user.mobileNumber + ')'  : ''}
+          </span>
+
+          <span className="col-3 title-text">
            {i.final_cost}
          </span>
        </div>

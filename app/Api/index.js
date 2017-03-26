@@ -79,8 +79,8 @@ const realData = {
         coordinates: [session.customer.location.coordinates[0], session.customer.location.coordinates[1]],
         type: 'Point',
       },
-      pilot: selection.pilots ? selection.pilots : '',
-      team: selection.teamSelect,
+      pilot: selection.pilots ? selection.pilots : null,
+      team: selection.teamSelect ? selection.teamSelect : null,
       createdBy: Object.values(userRole())[0],
     };
     const POST_ADD_TASK_API = `${API_URL}/orders`;
