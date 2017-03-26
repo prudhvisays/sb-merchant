@@ -9,10 +9,7 @@ const tabList = [
     { 'id': 3, 'name': 'Completed'},
     { 'id': 4, 'name': 'Failed'}
 ];
-const data = [
-    { '_id': 12, 'name': 'PRudhvi'},
-    { '_id': 14, 'name': 'pawan'},
-]
+
 class OrderTabs extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +35,7 @@ class OrderTabs extends React.Component {
                />
                 <div style={{ background: '#eee',  boxShadow: '6px 6px 12px 0 rgba(46,61,73,0.15)', lineHeight: '2rem'}}>
                     <div style={{ padding: '0 3em'}}><div className="table-head row">
-                        <div className="col-4">Order Details</div>
+                        <div className="col-4">Order Id</div>
                         <div className="col-2">Status</div>
                         <div className="col-2">Value</div>
                         <div className="col-4">Driver Details</div>

@@ -83,6 +83,9 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                     <Map
                         triggerComponent={this.props.triggerAddOrderComponent}
                         addOrderComponent={this.props.addOrderComponent}
+                        pickupCordState={this.props.pickupCordState}
+                        deliveryCordState={this.props.deliveryCordState}
+                        pickupCord={this.props.pickupCord}
                     /></div>
             </div>
       </section>
@@ -93,6 +96,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 const mapStateToProps = createStructuredSelector({
     searchText: selectors.searchText(),
     deliveryCordState: selectors.deliveryCordState(),
+    pickupCordState: selectors.pickupCordState(),
     addTask: selectors.addTask(),
     auto: selectors.auto(),
     orderList: selectors.orderList(),

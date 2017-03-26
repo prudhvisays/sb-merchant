@@ -27,6 +27,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
     super(props);
     this.calendarChange = this.calendarChange.bind(this);
     this.emitChanges = this.emitChanges.bind(this);
+    this.closeComponent = this.closeComponent.bind(this);
   }
 
   calendarChange(date) {
@@ -38,6 +39,11 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
     this.props.deliveryChange(newFormState);
   }
 
+  closeComponent() {
+      this.props.triggerComponent();
+      this.props.clearForm();
+      this.props.deliveryCord({dLat: '', dLng: ''});
+  }
   render() {
         const {
             addTaskInfo,
@@ -112,7 +118,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                         </div>
                         <div style={{ width: '100%', marginTop: '1em' }}>
                             <div className="d-flex justify-content-end">
-                                <button type="button" className="btn btn-danger" style={{ marginLeft: '1em' }} onClick={() => {triggerComponent()}}>Close</button>
+                                <button type="button" className="btn btn-danger" style={{ marginLeft: '1em' }} onClick={() => {this.closeComponent()}}>Close</button>
                                 <button type="button" className="btn btn-warning" style={{ marginLeft: '1em' }} onClick={clearForm}>Clear</button>
                                 <button type="button" className="btn btn-primary" style={{ marginLeft: '1em' }}onClick={() => { postAddTask(stateAddTask)}}>Add Order</button>
                             </div>

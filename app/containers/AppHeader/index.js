@@ -5,8 +5,22 @@ import SubHeader from './SubHeader';
 import { Link } from 'react-router';
 import AppHeaderStyle from './AppHeaderStyle';
 import Logo from '../../Assets/logo.png';
+import Dropdown from '../../components/Dropdown';
+import { EnhanceDropdown as enhancer } from '../../components/EnhanceDropdown';
+import { logout } from '../AuthPage/actions';
+
+const EnchancedDropdown = enhancer(Dropdown);
 
 class AppHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            optionSelected: 0,
+            data: ['Profile', 'Logout'],
+            isSecondOpen: true
+        };
+    }
+
   render() {
     return (
       <div id="app-header">
@@ -25,17 +39,15 @@ class AppHeader extends React.Component {
                         </li>
                     </ul>
                     <div className="form-inline my-2 my-lg-0">
-                        <div className="mr-sm-2" >Notifications</div>
-                        <div className="my-2 my-sm-0">
-                            <div className="dropdown">
-                                <i className="material-icons dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">account_circle</i>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div className="mr-sm-2" >Hello Merchant!</div>
+                          <EnchancedDropdown
+                          className="my-2 my-sm-0"
+                          optionSelected={this.state.optionSelected}
+                          onSelect={(option) => this.setState({ optionSelected: option})}
+                          data={this.state.data}
+                          icon={'account_circle'}
+                          logout={this.props.logout}
+                          />
                     </div>
                 </div>
             </AppHeaderStyle>
@@ -43,4 +55,10 @@ class AppHeader extends React.Component {
     );
   }
 }
-export default AppHeader;
+function mapDispatchToProps(dispatch) {
+    return {
+        logout: () => { dispatch(logout()); }
+    };
+}
+
+export default connect(null,mapDispatchToProps)(AppHeader);

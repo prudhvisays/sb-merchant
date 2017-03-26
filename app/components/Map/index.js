@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer, Path, Polyline } from 'react-leaflet';
 import AddButton from './AddButton';
+import auth from '../../Api/Auth';
 
 export default class PathHistory extends React.Component { // eslint-disable-line react/prefer-stateless-function
     constructor(props) {
@@ -15,7 +16,12 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
     }
 
       componentDidMount(){
-
+          if (auth.loggedIn() && JSON.parse(localStorage.getItem('sessionData')).username === 'merchant') {
+              const session = JSON.parse(localStorage.getItem('sessionData'));
+              const pLat = session.customer.location.coordinates[1];
+              const pLng = session.customer.location.coordinates[0];
+              this.props.pickupCord({ pLat, pLng });
+          }
       }
     handleLeafletLoad() {
         if (this.pathMap) {
@@ -24,12 +30,14 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
     }
 
     render() {
-        const position = [this.state.lat, this.state.lng];
+        const { pickupCordState, deliveryCordState } = this.props;
+        const position = [pickupCordState.pLat, pickupCordState.pLng];
+        const deliveryPos = [deliveryCordState.dLat, deliveryCordState.dLng];
         const { triggerComponent, addOrderComponent } = this.props;
         return (
             <Map
                 ref={(map) => { this.pathMap = map; }}
-                center={position ? position : [this.state.lat, this.state.lng]}
+                center={position[0] ? position : [this.state.lat, this.state.lng]}
                 zoom={this.state.zoom}
                 zoomControl={false}
                 className='pathMap'
@@ -38,11 +46,16 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
               <TileLayer
                   url='https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicHJ1ZGh2aXNheXMiLCJhIjoiY2l4aWxnM2xoMDAxMzJ3bzB2ajlpbzJ2eCJ9.L4CdTG9cSB-ADVYQXbH-hw'
               />
-              <Marker position={[1,1]}>
+              <Marker position={position[0] ? position : [1,1]}>
                 <Popup>
                   <span>PICKUP POINT</span>
                 </Popup>
               </Marker>
+                { deliveryPos[0] && <Marker position={deliveryPos[0] ? deliveryPos : [1,1]}>
+                <Popup>
+                  <span>PICKUP POINT</span>
+                </Popup>
+              </Marker> }
                 {!addOrderComponent &&<AddButton onClick={triggerComponent} style={{ width: '65%', textAlign: 'center' }}> ADD ORDER</AddButton>}
             </Map>
         );

@@ -174,6 +174,7 @@ export function* postAddTaskFlow() {
     const res = yield call(postAddTask, request, pickupCord, deliveryCord, dates);
     if (res) {
       yield put(actions.clearForm());
+      yield put(actions.triggerAddOrderComponent());
       yield put(actions.addTaskStatus({ statusText: 'Sending', statusColor: '#6bc9c5' }));
     } else {
       yield put(actions.addTaskStatus({ statusText: 'Sending', statusColor: '#6bc9c5' }));
@@ -247,6 +248,23 @@ export function* fetchOrdersRoot() {
   yield cancel(ordersWatcher);
 }
 
+//After Add Task Success
+export function* fetchOrderAfterAddOrderFlow() {
+    const date =  moment().format('YYYYMMDD');
+    console.log(date);
+    yield call(fetchOrders, date);
+}
+export function* fetchOrdersAfterAddOrder() {
+    yield fork(takeLatest,'POST_ADD_TASK_SUCCESS',fetchOrderAfterAddOrderFlow)
+}
+export function* fetchOrdersAfterAddOrderRoot() {
+    const ordersAfterWatcher = yield fork(fetchOrdersAfterAddOrder);
+    yield take('LOCATION_CHANGE');
+    yield cancel(ordersAfterWatcher);
+}
+
+// End of After Add Task Success
+
 export function* fetchOrderDetails(id) {
   yield put(actions.requestOrderDetail(true));
   try {
@@ -309,4 +327,5 @@ export default [
   fetchOrdersRoot,
   fetchOrderDetailsRoot,
   fetchPilotDetailsRoot,
+  fetchOrdersAfterAddOrderRoot,
 ];
