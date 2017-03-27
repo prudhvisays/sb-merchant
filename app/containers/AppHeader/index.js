@@ -47,7 +47,7 @@ class AppHeader extends React.Component {
                         {/*</li>*/}
                     </ul>
                     <div className="form-inline my-2 my-lg-0">
-                        <div className="mr-sm-2 nav-title" >Hello Merchant!</div>
+                        <div className="mr-sm-2 nav-title d-flex">Hello Merchant!</div>
                           <EnchancedDropdown
                           className="my-2 my-sm-0 nav-title"
                           optionSelected={this.state.optionSelected}

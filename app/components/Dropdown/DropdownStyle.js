@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const DropDownStyle = styled.div`
     position: relative;
+    font-size: 0rem;
     .material-icons {
     font-size: 2rem;
         &:hover {
@@ -15,6 +16,7 @@ const DropDownStyle = styled.div`
         display: none;
         padding: 0.5em 0.5em;
         z-index: 999;
+         font-size: 1rem;
              &.active {
             display: block;
             position: absolute;

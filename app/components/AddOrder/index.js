@@ -20,7 +20,7 @@ import LocationAddress from './LocationAddress';
 import DeliveryTime from './DeliveryTime';
 import PaymentType from './PaymentType';
 import LoadingSpinner from '../LoadingSpinner';
-
+import './OrderDetails.css';
 
 class AddOrder extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
