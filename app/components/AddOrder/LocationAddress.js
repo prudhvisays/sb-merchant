@@ -61,7 +61,7 @@ export default class LocationAddress extends React.Component { //eslint-disable-
         return (
            <div>
                <div className="form-group">
-                <label htmlFor="orderLocation">Location</label>
+                <label htmlFor="orderLocation">Location<span className="text-danger lead">*</span></label>
                 <input
                     type="text"
                     className="form-control place-search"
@@ -71,12 +71,13 @@ export default class LocationAddress extends React.Component { //eslint-disable-
                 />
             </div>
                <div className="form-group">
-                   <label htmlFor="orderDescription">Address</label>
+                   <label htmlFor="orderDescription">Address<span className="text-danger lead">*</span></label>
                    <input
                        type="text"
                        className="form-control"
                        id="orderAddress"
                        placeholder="Enter Address"
+                       required="required"
                    />
                </div>
             </div>

@@ -68,7 +68,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                             />
                         </div>
                         <div className="col-6" style={{ padding: 0 }}>
-                            <div className="card p-2" style={{ height: '100%' }}>
+                            <div className="card p-3" style={{ height: '100%' }}>
                                 {/*<LocationAddress*/}
                                     {/*addTaskInfo={addTaskInfo}*/}
                                     {/*deliveryChange={deliveryChange}*/}

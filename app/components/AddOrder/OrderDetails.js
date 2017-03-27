@@ -38,9 +38,9 @@ export default class OrderDetails extends React.Component { //eslint-disable-lin
     render() {
         const { stateAddTask, addTaskInfo, deliveryChange, deliveryCord } = this.props;
         return (
-            <div className="card p-2">
+            <div className="card p-3">
                 <div className="form-group">
-                    <label htmlFor="orderDescription">Phone Number</label>
+                    <label htmlFor="orderDescription">Phone Number<span className="text-danger lead">*</span></label>
                     <input
                         type="tel"
                         className="form-control"
@@ -66,19 +66,19 @@ export default class OrderDetails extends React.Component { //eslint-disable-lin
                         value={stateAddTask.delivery.to_name}
                     />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="orderTitle">Enter Title</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="orderTitle"
-                        placeholder="Title"
-                        name="title"
-                        value={stateAddTask.taskInfo.title}
-                        onChange={this.infoChange}
-                        required="required"
-                    />
-                </div>
+                {/*<div className="form-group">*/}
+                    {/*<label htmlFor="orderTitle">Enter Title</label>*/}
+                    {/*<input*/}
+                        {/*type="text"*/}
+                        {/*className="form-control"*/}
+                        {/*id="orderTitle"*/}
+                        {/*placeholder="Title"*/}
+                        {/*name="title"*/}
+                        {/*value={stateAddTask.taskInfo.title}*/}
+                        {/*onChange={this.infoChange}*/}
+                        {/*required="required"*/}
+                    {/*/>*/}
+                {/*</div>*/}
 
                 {/*<div className="form-group">*/}
                     {/*<label htmlFor="orderDescription">Description</label>*/}
