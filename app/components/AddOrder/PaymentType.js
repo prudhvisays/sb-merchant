@@ -19,18 +19,6 @@ export default class PaymentType extends React.Component { //eslint-disable-line
             <div className="form-group col-6">
                 <label className="custom-control custom-radio">
                     <input
-                        id="radio3"
-                        name="COD"
-                        type="radio"
-                        className="custom-control-input"
-                        checked={stateAddTask.taskInfo.paymentType === 'COD'}
-                        onChange={this.onChange}
-                    />
-                    <span className="custom-control-indicator" />
-                    <span className="custom-control-description">COD</span>
-                </label>
-                <label className="custom-control custom-radio">
-                    <input
                         id="radio2"
                         name="PREPAID"
                         type="radio"
@@ -40,6 +28,19 @@ export default class PaymentType extends React.Component { //eslint-disable-line
                     />
                     <span className="custom-control-indicator" />
                     <span className="custom-control-description">Prepaid</span>
+                </label>
+
+                <label className="custom-control custom-radio">
+                    <input
+                        id="radio3"
+                        name="COD"
+                        type="radio"
+                        className="custom-control-input"
+                        checked={stateAddTask.taskInfo.paymentType === 'COD'}
+                        onChange={this.onChange}
+                    />
+                    <span className="custom-control-indicator" />
+                    <span className="custom-control-description">COD</span>
                 </label>
             </div>
 

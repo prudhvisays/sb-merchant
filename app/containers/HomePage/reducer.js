@@ -33,7 +33,7 @@ const initialState = {
     description: '',
     team: '',
     pilots: [],
-    paymentType: 'COD',
+    paymentType: 'PREPAID',
   },
   request: false,
   deliveryTime: 'deliverNow',

@@ -67,6 +67,7 @@ export default class LocationAddress extends React.Component { //eslint-disable-
                     className="form-control place-search"
                     id="orderLocation"
                     placeholder="Search Location"
+                    required="required"
                 />
             </div>
                <div className="form-group">

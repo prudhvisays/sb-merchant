@@ -9,7 +9,6 @@ const AddButton = styled.div`
     color: #fff;
     font-size: 2rem;
     line-height: 3rem;
-    padding: 0 1em;
     white-space: nowrap;
     cursor: pointer;
     -webkit-box-shadow: 0 10px 6px -6px #777;

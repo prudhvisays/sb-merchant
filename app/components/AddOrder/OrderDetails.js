@@ -1,4 +1,5 @@
 import React from 'react';
+import LocationAddress from './LocationAddress';
 
 export default class OrderDetails extends React.Component { //eslint-disable-line
     constructor(props) {
@@ -35,9 +36,36 @@ export default class OrderDetails extends React.Component { //eslint-disable-lin
         this.emitChanges({ ...pickup, from_date: Date });
     }
     render() {
-        const { stateAddTask } = this.props;
+        const { stateAddTask, addTaskInfo, deliveryChange, deliveryCord } = this.props;
         return (
             <div className="card p-2">
+                <div className="form-group">
+                    <label htmlFor="orderDescription">Phone Number</label>
+                    <input
+                        type="tel"
+                        className="form-control"
+                        id="orderNumber"
+                        placeholder="Enter Phone Number"
+                        maxLength="10"
+                        pattern="\d*"
+                        name="to_phone"
+                        onChange={this.onChange}
+                        value={stateAddTask.delivery.to_phone}
+                        required="required"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="orderName">Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="orderName"
+                        placeholder="Enter Name"
+                        name="to_name"
+                        onChange={this.onChange}
+                        value={stateAddTask.delivery.to_name}
+                    />
+                </div>
                 <div className="form-group">
                     <label htmlFor="orderTitle">Enter Title</label>
                     <input
@@ -48,56 +76,40 @@ export default class OrderDetails extends React.Component { //eslint-disable-lin
                         name="title"
                         value={stateAddTask.taskInfo.title}
                         onChange={this.infoChange}
+                        required="required"
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="orderDescription">Description</label>
-                    <textarea
-                        className="form-control"
-                        id="orderDescription"
-                        rows="3"
-                        name="description"
-                        value={stateAddTask.taskInfo.description}
-                        onChange={this.infoChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="orderName">Enter Name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="orderName"
-                        placeholder="Name"
-                        name="to_name"
-                        onChange={this.onChange}
-                        value={stateAddTask.delivery.to_name}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="orderDescription">Phone Number</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="orderNumber"
-                        placeholder="Enter Phone Number"
-                        name="to_phone"
-                        onChange={this.onChange}
-                        value={stateAddTask.delivery.to_phone}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="orderEmail">Email Address</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="orderEmail"
-                        placeholder="Enter Email Address"
-                        name="to_email"
-                        onChange={this.onChange}
-                        value={stateAddTask.delivery.to_email}
-                    />
-                </div>
+                {/*<div className="form-group">*/}
+                    {/*<label htmlFor="orderDescription">Description</label>*/}
+                    {/*<textarea*/}
+                        {/*className="form-control"*/}
+                        {/*id="orderDescription"*/}
+                        {/*rows="3"*/}
+                        {/*name="description"*/}
+                        {/*value={stateAddTask.taskInfo.description}*/}
+                        {/*onChange={this.infoChange}*/}
+                    {/*/>*/}
+                {/*</div>*/}
+
+                {/*<div className="form-group">*/}
+                    {/*<label htmlFor="orderEmail">Email Address</label>*/}
+                    {/*<input*/}
+                        {/*type="text"*/}
+                        {/*className="form-control"*/}
+                        {/*id="orderEmail"*/}
+                        {/*placeholder="Enter Email Address"*/}
+                        {/*name="to_email"*/}
+                        {/*onChange={this.onChange}*/}
+                        {/*value={stateAddTask.delivery.to_email}*/}
+                    {/*/>*/}
+                {/*</div>*/}
+                <LocationAddress
+                    addTaskInfo={addTaskInfo}
+                    deliveryChange={deliveryChange}
+                    stateAddTask={stateAddTask}
+                    deliveryCord={deliveryCord}
+                />
             </div>
         );
     }

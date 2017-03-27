@@ -62,7 +62,7 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
                   <span>PICKUP POINT</span>
                 </Popup>
               </Marker> }
-                {!addOrderComponent &&<AddButton onClick={triggerComponent} style={{ width: '65%', textAlign: 'center' }}> ADD ORDER</AddButton>}
+                {!addOrderComponent &&<AddButton onClick={triggerComponent} style={{ width: '65%', textAlign: 'center' }}>Create Order</AddButton>}
             </Map>
         );
     }

@@ -16,7 +16,15 @@ class AppHeader extends React.Component {
         super(props);
         this.state = {
             optionSelected: 0,
-            data: ['Profile', 'Logout'],
+            data: [{
+                title: 'Profile',
+                icon: 'person',
+            },
+            {
+                title: 'Logout',
+                icon: 'exit_to_app',
+            },
+            ],
             isSecondOpen: true
         };
     }
@@ -24,24 +32,24 @@ class AppHeader extends React.Component {
   render() {
     return (
       <div id="app-header">
-            <AppHeaderStyle className="navbar navbar-toggleable-md navbar-light bg-faded">
+            <AppHeaderStyle className="navbar navbar-toggleable-md">
                 <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
-                <a className="navbar-brand" href="#"><img src={Logo} className="logo"/></a>
+                <Link className="navbar-brand" to="/"><img src={Logo} className="logo"/></Link>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav mr-auto mt-2 mt-md-0">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home</a>
+                            <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Accounts</a>
-                        </li>
+                        {/*<li className="nav-item">*/}
+                            {/*<a className="nav-link" href="#">Accounts</a>*/}
+                        {/*</li>*/}
                     </ul>
                     <div className="form-inline my-2 my-lg-0">
-                        <div className="mr-sm-2" >Hello Merchant!</div>
+                        <div className="mr-sm-2 nav-title" >Hello Merchant!</div>
                           <EnchancedDropdown
-                          className="my-2 my-sm-0"
+                          className="my-2 my-sm-0 nav-title"
                           optionSelected={this.state.optionSelected}
                           onSelect={(option) => this.setState({ optionSelected: option})}
                           data={this.state.data}

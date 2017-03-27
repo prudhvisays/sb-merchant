@@ -57,23 +57,24 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
         } = this.props
         return (
             <section className="container" style={{ padding: '1em 3em'}}>
-              { !stateAddTask.request ? (<div className="form">
+              { !stateAddTask.request ? (<form onSubmit={() => {postAddTask(stateAddTask)}}><div className="form">
                     <div className="row">
                         <div className="col-6" style={{ padding: '0 1em 0 0' }}>
                             <OrderDetails
                                 addTaskInfo={addTaskInfo}
                                 deliveryChange={deliveryChange}
                                 stateAddTask={stateAddTask}
+                                deliveryCord={deliveryCord}
                             />
                         </div>
                         <div className="col-6" style={{ padding: 0 }}>
                             <div className="card p-2" style={{ height: '100%' }}>
-                                <LocationAddress
-                                    addTaskInfo={addTaskInfo}
-                                    deliveryChange={deliveryChange}
-                                    stateAddTask={stateAddTask}
-                                    deliveryCord={deliveryCord}
-                                    />
+                                {/*<LocationAddress*/}
+                                    {/*addTaskInfo={addTaskInfo}*/}
+                                    {/*deliveryChange={deliveryChange}*/}
+                                    {/*stateAddTask={stateAddTask}*/}
+                                    {/*deliveryCord={deliveryCord}*/}
+                                    {/*/>*/}
 
                                 <label>Delivery Time</label>
                                 <DeliveryTime
@@ -92,20 +93,9 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                     {/*options={{enableTime: true}}*/}
                                   {/*/>*/}
                                 </div>}
-                                <div className="row">
-                                    <div className="col-6">
-                                        <label>Payment Type</label>
-                                    </div>
+                                <div className="form-group row">
                                     <div className="col-6">
                                         <label htmlFor="orderValue">Order Value</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <PaymentType
-                                        addTaskInfo={addTaskInfo}
-                                        stateAddTask={stateAddTask}
-                                    />
-                                    <div className="col-6">
                                         <input
                                             type="number"
                                             className="form-control"
@@ -114,17 +104,28 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                         />
                                     </div>
                                 </div>
+                                <div className="row">
+                                    <div className="col-6">
+                                        <label>Payment Type</label>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <PaymentType
+                                        addTaskInfo={addTaskInfo}
+                                        stateAddTask={stateAddTask}
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div style={{ width: '100%', marginTop: '1em' }}>
                             <div className="d-flex justify-content-end">
                                 <button type="button" className="btn btn-danger" style={{ marginLeft: '1em' }} onClick={() => {this.closeComponent()}}>Close</button>
                                 <button type="button" className="btn btn-warning" style={{ marginLeft: '1em' }} onClick={clearForm}>Clear</button>
-                                <button type="button" className="btn btn-primary" style={{ marginLeft: '1em' }}onClick={() => { postAddTask(stateAddTask)}}>Add Order</button>
+                                <button type="submit" className="btn btn-primary" style={{ marginLeft: '1em' }} >Create Order</button>
                             </div>
                         </div>
                     </div>
-                </div>) : (<LoadingSpinner
+                  </div></form>) : (<LoadingSpinner
                   className="ink-flex push-center cs-loader"
                   color={stateAddTask.addTaskStatus.statusColor}
                   style={{ margin: '3em 8em'}}

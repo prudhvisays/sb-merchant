@@ -12,8 +12,11 @@ const Dropdown = (props) => {
                     props.data.map((item, i) => {
                         return (
                             <li key={i} className={i === props.optionSelected ? 'selected' : null}
-                                onClick={() => props.onSelect(i,item)}>
-                                {item}
+                                onClick={() => props.onSelect(i,item.title)}>
+                                <div className="d-flex flex-row mb-1">
+                                    <i className="material-icons mr-2" style={{ fontSize: '1.5rem'}}>{item.icon}</i>
+                                    <div>{item.title}</div>
+                                </div>
                             </li>
                         )
                     })
