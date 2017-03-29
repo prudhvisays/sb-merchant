@@ -4,10 +4,8 @@ export const session = JSON.parse(localStorage.getItem('sessionData'));
 export const userRole = () => {
   if(auth.loggedIn()){
     const session = JSON.parse(localStorage.getItem('sessionData'));
-    if(session['username'] === 'admin') {
-      return {manager:session['manager']['_id']};
-    } else if(session['username'] === 'merchant') {
-      return {customer:session['customer']['_id']};
+   if(session.customer) {
+      return {merchant:session['customer']['_id']};
     }
   };
 };

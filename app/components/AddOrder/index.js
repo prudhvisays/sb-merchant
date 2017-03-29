@@ -33,10 +33,10 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
   calendarChange(date) {
     const { pickup } = this.props.stateAddTask;
     const Date = moment(date[0]).utc().format();
-    this.emitChanges({ ...pickup, to_date: Date });
+    this.emitChanges({ ...pickup, from_date: Date });
   }
   emitChanges(newFormState) {
-    this.props.deliveryChange(newFormState);
+    this.props.pickupChange(newFormState);
   }
 
   closeComponent() {
@@ -84,14 +84,13 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
 
                                 { stateAddTask.deliveryTime === 'schedule' &&  <div className="form-group">
                                     <label htmlFor="date-input" className="col-form-label">Date</label>
-                                  {/*<Flatpickr*/}
-                                    {/*className="form-control" id="date-input"*/}
-                                    {/*data-enable-time*/}
-                                    {/*placeholder={'Pickup  Before'}*/}
-                                    {/*onChange={this.calendarChange}*/}
-                                    {/*value={ stateAddTask.pickup.to_date ? moment(stateAddTask.pickup.to_date).format() : ''}*/}
-                                    {/*options={{enableTime: true}}*/}
-                                  {/*/>*/}
+                                  <Flatpickr
+                                    className="form-control" id="date-input"
+                                    data-enable-time
+                                    placeholder={'Pickup  Before'}
+                                    onChange={this.calendarChange}
+                                    options={{enableTime: true, minDate: 'today', maxDate: (new Date().fp_incr(1))}}
+                                  />
                                 </div>}
                                 <div className="form-group row">
                                     <div className="col-6">

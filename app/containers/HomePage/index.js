@@ -79,6 +79,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                         /> : <AddOrder
                             addTaskInfo={this.props.addTaskInfo}
                             deliveryChange={this.props.deliveryChange}
+                            pickupChange={this.props.pickupChange}
                             stateAddTask={this.props.addTask}
                             deliveryCordState={this.state.deliveryCordState}
                             deliveryCord={this.props.deliveryCord}

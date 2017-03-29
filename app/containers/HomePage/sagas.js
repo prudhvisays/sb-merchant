@@ -167,8 +167,8 @@ export function* postAddTaskFlow() {
     const pickupCord = yield select(pickupCordState());
     const deliveryCord = yield select(deliveryCordState());
     const dates = {
-      pickupdate: moment().add(15,'m').utc().format(),
-      deliverydate: request.deliveryTime === 'deliverNow' ? moment().add(45,'m').utc().format() : request.delivery.to_date,
+      pickupdate: () => request.deliveryTime === 'deliverNow' ? moment().add(15,'m').utc().format() : request.pickup.from_date,
+      deliverydate:  () =>  moment().add(45,'m').utc().format(),
     }
 
     const res = yield call(postAddTask, request, pickupCord, deliveryCord, dates);

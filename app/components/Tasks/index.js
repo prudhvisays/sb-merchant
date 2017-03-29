@@ -22,7 +22,7 @@ export default class Tasks extends React.Component { //eslint-disable-line
     this.emitSearch = this.emitSearch.bind(this);
     this.pickDate = this.pickDate.bind(this);
   }
- 
+
   taskExpand() {
     const taskDiv = document.querySelector('.taskExpand');
     const listShow = document.querySelector('.listShow');

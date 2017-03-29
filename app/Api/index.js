@@ -55,6 +55,7 @@ const realData = {
     }).then((response) => response.data);
   },
   postAddTaskApi(data, pickupCord, deliveryCord, dates) {
+    console.info(dates.deliverydate());
     const { pickup, delivery, taskInfo, selection } = data;
     const payload = {
       title: taskInfo.title,
@@ -68,18 +69,19 @@ const realData = {
       to_address: delivery.to_address,
       paymentType: 'PREPAID',
       status: 'PENDING',
-      to_date_time: dates.deliverydate,
+      to_date_time: dates.deliverydate(),
       to_location: {
         coordinates: [deliveryCord.dLng, deliveryCord.dLat],
         type: 'Point',
       },
-      from_date_time: dates.pickupdate,
+      from_date_time: dates.pickupdate(),
       from_location: {
         coordinates: [session.customer.location.coordinates[0], session.customer.location.coordinates[1]],
         type: 'Point',
       },
       pilot: selection.pilots ? selection.pilots : null,
       team: selection.teamSelect ? selection.teamSelect : null,
+      createdByUserRole: Object.keys(userRole())[0].toUpperCase(),
       createdBy: Object.values(userRole())[0],
     };
     const POST_ADD_TASK_API = `${API_URL}/orders`;
