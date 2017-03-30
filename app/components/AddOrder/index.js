@@ -20,6 +20,7 @@ import LocationAddress from './LocationAddress';
 import DeliveryTime from './DeliveryTime';
 import PaymentType from './PaymentType';
 import LoadingSpinner from '../LoadingSpinner';
+import AddOrderStyle from './AddOrderStyle';
 import './OrderDetails.css';
 
 class AddOrder extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -53,10 +54,11 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
             setDeliveryTime,
             postAddTask,
             triggerComponent,
-            clearForm
+            clearForm,
+            pickupChange
         } = this.props
         return (
-            <section className="container" style={{ padding: '1em 3em'}}>
+            <AddOrderStyle className="container" style={{ padding: '1em 3em'}}>
               { !stateAddTask.request ? (<form onSubmit={() => {postAddTask(stateAddTask)}}><div className="form">
                     <div className="row">
                         <div className="col-6" style={{ padding: '0 1em 0 0' }}>
@@ -68,7 +70,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                             />
                         </div>
                         <div className="col-6" style={{ padding: 0 }}>
-                            <div className="card p-3" style={{ height: '100%' }}>
+                            <div className="p-3" style={{ height: '100%' }}>
                                 {/*<LocationAddress*/}
                                     {/*addTaskInfo={addTaskInfo}*/}
                                     {/*deliveryChange={deliveryChange}*/}
@@ -80,6 +82,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                 <DeliveryTime
                                 setDeliveryTime={setDeliveryTime}
                                 stateAddTask={stateAddTask}
+                                pickupChange={pickupChange}
                                 />
 
                                 { stateAddTask.deliveryTime === 'schedule' &&  <div className="form-group">
@@ -87,9 +90,10 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                   <Flatpickr
                                     className="form-control" id="date-input"
                                     data-enable-time
-                                    placeholder={'Pickup  Before'}
+                                    placeholder={'Pickup Before'}
                                     onChange={this.calendarChange}
                                     options={{enableTime: true, minDate: 'today', maxDate: (new Date().fp_incr(1))}}
+                                    style={{ background: '#fff' }}
                                   />
                                 </div>}
                                 <div className="form-group row">
@@ -140,7 +144,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                       <span>{stateAddTask.addTaskStatus.statusText}</span></div>
                   </div>
                 </LoadingSpinner>)}
-            </section>
+            </AddOrderStyle>
         );
     }
 }

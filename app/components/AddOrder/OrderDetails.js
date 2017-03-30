@@ -38,7 +38,7 @@ export default class OrderDetails extends React.Component { //eslint-disable-lin
     render() {
         const { stateAddTask, addTaskInfo, deliveryChange, deliveryCord } = this.props;
         return (
-            <div className="card p-3">
+            <div className="p-3">
                 <div className="form-group">
                     <label htmlFor="orderDescription">Phone Number<span className="text-danger lead">*</span></label>
                     <input
@@ -47,7 +47,6 @@ export default class OrderDetails extends React.Component { //eslint-disable-lin
                         id="orderNumber"
                         placeholder="Enter Phone Number"
                         maxLength="10"
-                        pattern="\d*"
                         name="to_phone"
                         onChange={this.onChange}
                         value={stateAddTask.delivery.to_phone}

@@ -7,6 +7,10 @@ export default class DeliveryTime extends React.Component { //eslint-disable-lin
     }
     onChange(e) {
         this.props.setDeliveryTime(e.target.name);
+        if(e.target.name === 'deliverNow') {
+          const { pickup } = this.props.stateAddTask;
+          this.props.pickupChange({ ...pickup, from_date: '' });
+        }
     }
     render() {
         const { stateAddTask } = this.props;
