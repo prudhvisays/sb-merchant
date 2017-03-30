@@ -5,7 +5,7 @@ export const userRole = () => {
   if(auth.loggedIn()){
     const session = JSON.parse(localStorage.getItem('sessionData'));
    if(session.customer) {
-      return {merchant:session['customer']['_id']};
+      return {customer:session['customer']['_id']};
     }
   };
 };

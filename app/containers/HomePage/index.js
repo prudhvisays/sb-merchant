@@ -58,6 +58,12 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
       this.props.getOrder();
       this.timerId = setInterval(this.props.getOrder, 10000);
     }
+    const elem = this.merDom;
+    elem.style.opacity = 0;
+    window.requestAnimationFrame(function() {
+      elem.style.transition = "opacity 1000ms";
+      elem.style.opacity = 1;
+    });
   }
 
   componentWillUnmount() {
@@ -69,7 +75,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
   render() {
     const { compressed, pilotState, orderDetails, groupDisplay, addTask } = this.state;
     return (
-      <section style={{ height: '89vh', overflow: 'hidden' }}>
+      <section style={{ height: '89vh', overflow: 'hidden' }} ref={(comp) => { this.merDom = comp; }}>
             <div className="row">
                 <div className="col-8" style={{ padding: 0}}>
                     { !this.props.addOrderComponent ? <Tabs

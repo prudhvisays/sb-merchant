@@ -28,10 +28,18 @@ class AppHeader extends React.Component {
             isSecondOpen: true
         };
     }
+    componentDidMount() {
+      const elem = this.headerDom;
+      elem.style.opacity = 0;
+      window.requestAnimationFrame(function() {
+        elem.style.transition = "opacity 150ms";
+        elem.style.opacity = 1;
+      });
+    }
 
   render() {
     return (
-      <div id="app-header">
+      <div id="app-header" ref={(comp) => this.headerDom = comp}>
             <AppHeaderStyle className="navbar navbar-toggleable-md">
                 <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
