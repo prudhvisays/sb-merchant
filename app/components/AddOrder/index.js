@@ -71,28 +71,20 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                         </div>
                         <div className="col-6" style={{ padding: 0 }}>
                             <div className="p-3" style={{ height: '100%' }}>
-                                {/*<LocationAddress*/}
-                                    {/*addTaskInfo={addTaskInfo}*/}
-                                    {/*deliveryChange={deliveryChange}*/}
-                                    {/*stateAddTask={stateAddTask}*/}
-                                    {/*deliveryCord={deliveryCord}*/}
-                                    {/*/>*/}
-
-                                <label>Delivery Time</label>
+                                <div className="form-group mt-1"><label>Delivery Time</label>
                                 <DeliveryTime
                                 setDeliveryTime={setDeliveryTime}
                                 stateAddTask={stateAddTask}
                                 pickupChange={pickupChange}
-                                />
+                                /> </div>
 
                                 { stateAddTask.deliveryTime === 'schedule' &&  <div className="form-group">
                                     <label htmlFor="date-input" className="col-form-label">Pickup Before</label>
                                   <Flatpickr
                                     className="form-control" id="date-input"
-                                    data-enable-time
                                     placeholder={'Pickup Before'}
                                     onChange={this.calendarChange}
-                                    options={{enableTime: true, minDate: 'today', maxDate: (new Date().fp_incr(1))}}
+                                    options={{enableTime: true, minDate: 'today', maxDate: new Date().fp_incr(1)}}
                                     style={{ background: '#fff' }}
                                   />
                                 </div>}

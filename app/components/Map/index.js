@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer, Path, Polyline } from 'react-leaflet';
 import AddButton from './AddButton';
 import auth from '../../Api/Auth';
-
+import Logo from '../../Assets/leaflet/marker-icon.png';
 export default class PathHistory extends React.Component { // eslint-disable-line react/prefer-stateless-function
     constructor(props) {
         super(props);
@@ -40,6 +40,14 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
         const position = [pickupCordState.pLat, pickupCordState.pLng];
         const deliveryPos = [deliveryCordState.dLat, deliveryCordState.dLng];
         const { triggerComponent, addOrderComponent } = this.props;
+      const myIcon = L.icon({
+          iconUrl: Logo,
+        iconSize:     [38, 95], // size of the icon
+        shadowSize:   [50, 64], // size of the shadow
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76],
+      });
         return (
             <Map
                 ref={(map) => { this.pathMap = map; }}

@@ -29,23 +29,27 @@ class AppHeader extends React.Component {
         };
     }
     componentDidMount() {
-      const elem = this.headerDom;
-      elem.style.opacity = 0;
+      const elem1 = this.headerLogo;
+      const elem2 = this.headerMenu;
+      elem1.style.opacity = 0;
+      elem2.style.opacity = 0;
       window.requestAnimationFrame(function() {
-        elem.style.transition = "opacity 150ms";
-        elem.style.opacity = 1;
+        elem1.style.transition = "opacity 350ms cubic-bezier(0.6, 0.2, 0.1, 1) 100ms";
+        elem2.style.transition = "opacity 350ms cubic-bezier(0.6, 0.2, 0.1, 1) 100ms";
+        elem1.style.opacity = 1;
+        elem2.style.opacity = 1;
       });
     }
 
   render() {
     return (
-      <div id="app-header" ref={(comp) => this.headerDom = comp}>
+      <div id="app-header">
             <AppHeaderStyle className="navbar navbar-toggleable-md">
                 <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
-                <Link className="navbar-brand" to="/"><img src={Logo} className="logo"/></Link>
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <Link className="navbar-brand" to="/"><img src={Logo} className="logo" ref={(comp1) => this.headerLogo = comp1}/></Link>
+                <div className="collapse navbar-collapse" id="navbarTogglerDemo02" ref={(comp2) => this.headerMenu = comp2}>
                     <ul className="navbar-nav mr-auto mt-2 mt-md-0">
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>

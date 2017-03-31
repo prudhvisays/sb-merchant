@@ -61,7 +61,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
     const elem = this.merDom;
     elem.style.opacity = 0;
     window.requestAnimationFrame(function() {
-      elem.style.transition = "opacity 1000ms";
+      elem.style.transition = "opacity 450ms cubic-bezier(0.6, 0.2, 0.1, 1) 500ms";
       elem.style.opacity = 1;
     });
   }

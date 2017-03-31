@@ -13,7 +13,12 @@ const AddButton = styled.div`
     white-space: nowrap;
     cursor: pointer;
     border-radius: 4px;
-    box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 12px 15px 20px 0 rgba(46,61,73,.15);
+    transition:transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+    &:hover {
+      box-shadow: 2px 4px 8px 0 rgba(46,61,73,.2);
+      transition: box-shadow .3s ease;
+    }
 `;
 
 export default AddButton;
