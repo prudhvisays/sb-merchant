@@ -78,7 +78,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                 pickupChange={pickupChange}
                                 /> </div>
 
-                                { stateAddTask.deliveryTime === 'schedule' &&  <div className="form-group">
+                                { (stateAddTask.deliveryTime === 'schedule') &&  <div className="form-group">
                                     <label htmlFor="date-input" className="col-form-label">Pickup Before</label>
                                   <Flatpickr
                                     className="form-control" id="date-input"
