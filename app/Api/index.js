@@ -59,9 +59,9 @@ const realData = {
     const { pickup, delivery, taskInfo, selection } = data;
     const payload = {
       title: taskInfo.title,
-      from_name: session.customer.name,
-      from_phone: session.customer.user.mobileNumber,
-      from_email: session.customer.user.emailAddress,
+      from_name: session().customer ? session().customer.name : '',
+      from_phone: session().customer ? session().customer.user.mobileNumber : '',
+      from_email: session().customer ? session().customer.user.emailAddress : '',
       from_address: pickup.from_address,
       to_name: delivery.to_name,
       to_phone: delivery.to_phone,
@@ -76,7 +76,7 @@ const realData = {
       },
       from_date_time: dates.pickupdate(),
       from_location: {
-        coordinates: [session.customer.location.coordinates[0], session.customer.location.coordinates[1]],
+        coordinates: session().customer ? [session().customer.location.coordinates[0], session().customer.location.coordinates[1]] : [0,0],
         type: 'Point',
       },
       pilot: selection.pilots ? selection.pilots : null,
