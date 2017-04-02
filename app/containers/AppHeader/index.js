@@ -8,6 +8,7 @@ import Logo from '../../Assets/logo.png';
 import Dropdown from '../../components/Dropdown';
 import { EnhanceDropdown as enhancer } from '../../components/EnhanceDropdown';
 import { logout } from '../AuthPage/actions';
+import { session } from '../../Api/ApiConstants';
 
 const EnchancedDropdown = enhancer(Dropdown);
 
@@ -56,7 +57,7 @@ class AppHeader extends React.Component {
                         {/*</li>*/}
                     </ul>
                     <div className="form-inline my-2 my-lg-0">
-                        <div className="mr-sm-2 nav-title d-flex">Hello Merchant!</div>
+                        <div className="mr-sm-2 nav-title d-flex">Hello {session() ? session().customer.name : ''}</div>
                           <EnchancedDropdown
                           className="my-2 my-sm-0 nav-title"
                           optionSelected={this.state.optionSelected}

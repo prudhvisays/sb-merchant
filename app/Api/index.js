@@ -63,7 +63,7 @@ const realData = {
       from_name: session().customer ? session().customer.name : '',
       from_phone: session().customer ? session().customer.user.mobileNumber : '',
       from_email: session().customer ? session().customer.user.emailAddress : '',
-      from_address: pickup.from_address,
+      from_address: session().customer ? session().customer.address : '',
       to_name: delivery.to_name,
       to_phone: delivery.to_phone,
       to_email: delivery.to_email,

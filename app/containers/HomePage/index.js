@@ -102,6 +102,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                         pickupCordState={this.props.pickupCordState}
                         deliveryCordState={this.props.deliveryCordState}
                         pickupCord={this.props.pickupCord}
+                        orderList={this.props.orderList}
                     /></div>
             </div>
       </section>
