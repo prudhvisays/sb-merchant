@@ -174,6 +174,7 @@ export function* postAddTaskFlow() {
     const res = yield call(postAddTask, request, pickupCord, deliveryCord, dates);
     if (res) {
       yield put(actions.clearForm());
+      yield put(actions.deliveryCord({ dLat: '', dLng: '' }));
       yield put(actions.triggerAddOrderComponent());
       yield put(actions.addTaskStatus({ statusText: 'Sending', statusColor: '#6bc9c5' }));
     } else {
