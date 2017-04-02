@@ -59,6 +59,7 @@ const realData = {
     const { pickup, delivery, taskInfo, selection } = data;
     const payload = {
       title: taskInfo.title,
+      value: taskInfo.value,
       from_name: session().customer ? session().customer.name : '',
       from_phone: session().customer ? session().customer.user.mobileNumber : '',
       from_email: session().customer ? session().customer.user.emailAddress : '',

@@ -29,12 +29,17 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
     this.calendarChange = this.calendarChange.bind(this);
     this.emitChanges = this.emitChanges.bind(this);
     this.closeComponent = this.closeComponent.bind(this);
+    this.valueChange = this.valueChange.bind(this);
   }
 
   calendarChange(date) {
     const { pickup } = this.props.stateAddTask;
     const Date = moment(date[0]).utc().format();
     this.emitChanges({ ...pickup, from_date: Date });
+  }
+  valueChange(e) {
+    const { taskInfo } = this.props.stateAddTask;
+    this.props.addTaskInfo({...taskInfo, [e.target.name]: e.target.value});
   }
   emitChanges(newFormState) {
     this.props.pickupChange(newFormState);
@@ -96,6 +101,8 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                             className="form-control"
                                             id="orderValue"
                                             placeholder="Enter Value"
+                                            name="value"
+                                            onChange={this.valueChange}
                                         />
                                     </div>
                                 </div>

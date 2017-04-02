@@ -17,11 +17,13 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
     }
 
       componentDidMount(){
-          if (auth.loggedIn() && JSON.parse(localStorage.getItem('sessionData')).username === 'merchant') {
-              const session = JSON.parse(localStorage.getItem('sessionData'));
-              const pLat = session.customer.location.coordinates[1];
-              const pLng = session.customer.location.coordinates[0];
-              this.props.pickupCord({ pLat, pLng });
+        const session = () => JSON.parse(localStorage.getItem('sessionData'));
+          if (auth.loggedIn() && !!session()) {
+              if(session().customer) {
+                const pLat = session().customer.location.coordinates[1];
+                const pLng = session().customer.location.coordinates[0];
+                this.props.pickupCord({ pLat, pLng });
+              }
           }
       }
     handleLeafletLoad() {
