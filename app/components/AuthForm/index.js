@@ -39,7 +39,7 @@ class AuthForm extends React.Component { // eslint-disable-line react/prefer-sta
             </div>
             <button type="submit" className="login-button">LOGIN</button>
           </form>
-          <div className="login-footer d-flex flex-row justify-content-center mt-4 pt-3"><div className="d-flex flex-column align-items-center"><div>All Rights Reserved.</div><div>For queries contact seasonboy@sb.com</div></div></div>
+          <div className="login-footer d-flex flex-row justify-content-center mt-4 pt-3"><div className="d-flex flex-column align-items-center"><div>All Rights Reserved.</div><div>For queries contact ask@seasonboy.com</div></div></div>
         </LoginForm>
     );
   }
