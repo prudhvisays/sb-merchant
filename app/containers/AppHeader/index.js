@@ -16,10 +16,7 @@ class AppHeader extends React.Component {
         super(props);
         this.state = {
             optionSelected: 0,
-            data: [{
-                title: 'Profile',
-                icon: 'person',
-            },
+            data: [
             {
                 title: 'Logout',
                 icon: 'exit_to_app',
