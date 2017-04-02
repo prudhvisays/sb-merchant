@@ -9,7 +9,7 @@ import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 import createLogger from 'redux-logger';
 
-const logger = createLogger({
+const logger = process.env.NODE_ENV !== 'production' && createLogger({
   // Ignore `CHANGE_FORM` actions in the logger, since they fire after every keystroke
   predicate: (getState, action) => action.type !== 'CHANGE_FORM',
 });
