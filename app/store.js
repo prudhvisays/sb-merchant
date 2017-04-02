@@ -9,10 +9,11 @@ import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 import createLogger from 'redux-logger';
 
-// const logger = process.env.NODE_ENV !== 'production' && createLogger({
-//   // Ignore `CHANGE_FORM` actions in the logger, since they fire after every keystroke
-//   predicate: (getState, action) => action.type !== 'CHANGE_FORM',
-// });
+const logger = process.env.NODE_ENV !== 'production' &&
+  typeof window === 'object' && createLogger({
+  // Ignore `CHANGE_FORM` actions in the logger, since they fire after every keystroke
+  predicate: (getState, action) => action.type !== 'CHANGE_FORM',
+});
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,6 +22,7 @@ export default function configureStore(initialState = {}, history) {
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
   const middlewares = [
+    logger,
     sagaMiddleware,
     routerMiddleware(history),
   ];
