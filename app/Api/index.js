@@ -68,7 +68,7 @@ const realData = {
       to_phone: delivery.to_phone,
       to_email: delivery.to_email,
       to_address: delivery.to_address,
-      paymentType: 'PREPAID',
+      paymentType: taskInfo.paymentType,
       status: 'PENDING',
       to_date_time: dates.deliverydate(),
       to_location: {
