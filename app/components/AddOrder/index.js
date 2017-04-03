@@ -51,8 +51,11 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
       this.props.clearForm();
       this.props.deliveryCord({dLat: '', dLng: ''});
   }
-  onValuePress(event) {
-    return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57
+  onValuePress(e) {
+    const re = /[^0-9.]+/g;
+    if (re.test(e.key)) {
+      e.preventDefault();
+    }
   }
   render() {
         const {
@@ -107,8 +110,9 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                             placeholder="Invoice Amount"
                                             name="value"
                                             min="0"
-                                            onKeyPress={this.onValuePress}
                                             onChange={this.valueChange}
+                                            onKeyPress={this.onValuePress}
+                                            value={stateAddTask.taskInfo.value}
                                         />
                                     </div>
                                 </div>
