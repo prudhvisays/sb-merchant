@@ -54,7 +54,10 @@ constructor(props) {
          </AccordStyle>
 
           <span className="col-3 title-text">
-            {i.pilot ? i.pilot.user.firstName + ' (' +  i.pilot.user.mobileNumber + ')'  : ''}
+            <div className="ink-flex vertical">
+              <div style={{ margin: '0' }}>{i.pilot ? i.pilot.user.firstName : '-'}</div>
+              <div style={{ fontSize: '0.8rem', margin: '0' }}>({i.pilot.user.mobileNumber})</div>
+            </div>
           </span>
 
           <span className="col-3 title-text">
