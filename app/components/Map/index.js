@@ -50,7 +50,7 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
           console.log(list.pilot_movement.coordinates.slice(-1));
             return ( <Marker icon={myIcon} key={list._id} position={list.status !== 'COMPLETED' && list.pilot_movement.coordinates[0] ? list.pilot_movement.coordinates.slice(-1)[0].reverse() : [0,0]}>
               <Popup>
-                <span>{list.pilot.user.firstName}</span>
+                <span>{list.pilot ? list.pilot.user.firstName : ''}</span>
               </Popup>
             </Marker>)
           }) : null
