@@ -102,7 +102,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                 {/*</div>}*/}
                                 <div className="form-group row">
                                     <div className="col-6">
-                                        <label htmlFor="orderValue">Order Value</label>
+                                        <label htmlFor="orderValue">Order Value<span className="text-danger lead">*</span></label>
                                         <input
                                             type="number"
                                             className="form-control"
@@ -110,6 +110,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                             placeholder="Invoice Amount"
                                             name="value"
                                             min="0"
+                                            required="required"
                                             onChange={this.valueChange}
                                             onKeyPress={this.onValuePress}
                                             value={stateAddTask.taskInfo.value}
