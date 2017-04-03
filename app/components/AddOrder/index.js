@@ -30,6 +30,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
     this.emitChanges = this.emitChanges.bind(this);
     this.closeComponent = this.closeComponent.bind(this);
     this.valueChange = this.valueChange.bind(this);
+    this.onValuePress = this.onValuePress.bind(this);
   }
 
   calendarChange(date) {
@@ -49,6 +50,9 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
       this.props.triggerComponent();
       this.props.clearForm();
       this.props.deliveryCord({dLat: '', dLng: ''});
+  }
+  onValuePress(event) {
+    return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57
   }
   render() {
         const {
@@ -102,6 +106,8 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                             id="orderValue"
                                             placeholder="Invoice Amount"
                                             name="value"
+                                            min="0"
+                                            onKeyPress={this.onValuePress}
                                             onChange={this.valueChange}
                                         />
                                     </div>

@@ -55,8 +55,8 @@ constructor(props) {
 
           <span className="col-3 title-text">
             <div className="ink-flex vertical">
-              <div style={{ margin: '0' }}>{i.pilot ? i.pilot.user.firstName : '-'}</div>
-              <div style={{ fontSize: '0.8rem', margin: '0' }}>({i.pilot.user.mobileNumber})</div>
+              <div style={{ margin: '0' }}>{i.pilot ? i.pilot.user ? i.pilot.user.firstName : '-' : '-'}</div>
+              <div style={{ fontSize: '0.8rem', margin: '0' }}>({i.pilot ? i.pilot.user ? i.pilot.user.mobileNumber : '-' : '-'})</div>
             </div>
           </span>
 
