@@ -19,7 +19,7 @@ export default class DeliveryTime extends React.Component { //eslint-disable-lin
                 <label className="custom-control custom-radio">
                     <input id="radio1" name="deliverNow" type="radio" className="custom-control-input" checked={stateAddTask.deliveryTime === 'deliverNow'} onChange={this.onChange}/>
                     <span className="custom-control-indicator" />
-                    <span className="custom-control-description">Delivery Now</span>
+                    <span className="custom-control-description">Deliver Now</span>
                 </label>
                 {/*<label className="custom-control custom-radio">*/}
                     {/*<input id="radio2" name="schedule" type="radio" className="custom-control-input" onChange={this.onChange} checked={stateAddTask.deliveryTime === 'schedule'} />*/}

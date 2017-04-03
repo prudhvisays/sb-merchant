@@ -15,6 +15,7 @@ export default class LocationAddress extends React.Component { //eslint-disable-
         this.initAutocomplete();
     }
     initAutocomplete() {
+      this.geolocate();
         searchBox = new google.maps.places.SearchBox( //eslint-disable-line
             document.querySelector('.place-search'));
         searchBox.addListener('places_changed', () => { //eslint-disable-line

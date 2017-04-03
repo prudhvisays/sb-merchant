@@ -100,7 +100,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                             type="number"
                                             className="form-control"
                                             id="orderValue"
-                                            placeholder="Enter Value"
+                                            placeholder="Invoice Amount"
                                             name="value"
                                             onChange={this.valueChange}
                                         />
