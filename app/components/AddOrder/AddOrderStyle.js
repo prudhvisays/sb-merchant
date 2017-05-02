@@ -20,7 +20,7 @@ const AddOrderStyle = styled.section`
    .actionButton {
    width: 100%;
    @media (max-width: 500px) {
-    margin-top: 1em;
+      margin-top: 1em;
       position: fixed;
       bottom: 0em;
       left: 0em;
