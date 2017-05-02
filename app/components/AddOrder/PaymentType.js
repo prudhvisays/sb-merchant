@@ -16,7 +16,7 @@ export default class PaymentType extends React.Component { //eslint-disable-line
     render() {
         const { stateAddTask } = this.props;
         return (
-            <div className="form-group col-6">
+            <div className="form-group col-md-6">
                 <label className="custom-control custom-radio">
                     <input
                         id="radio2"

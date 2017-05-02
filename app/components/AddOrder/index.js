@@ -105,7 +105,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                   {/*/>*/}
                                 {/*</div>}*/}
                                 <div className="form-group row">
-                                    <div className="col-6">
+                                    <div className="col-md-6">
                                         <label htmlFor="orderValue">Order Value<span className="text-danger lead">*</span></label>
                                         <input
                                             type="number"
@@ -122,7 +122,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-6">
+                                    <div className="col-md-6">
                                         <label>Payment Type</label>
                                     </div>
                                 </div>
