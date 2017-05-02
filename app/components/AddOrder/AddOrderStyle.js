@@ -26,7 +26,7 @@ const AddOrderStyle = styled.section`
       left: 0em;
       background: #fff;
       padding: 0.3em 0;
-      .d-flex {
+     .d-flex {
         justify-content: center !important;
       }
   }
