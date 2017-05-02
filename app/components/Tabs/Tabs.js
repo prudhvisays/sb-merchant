@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Tab from './Tab';
+import NavTabStyle from './NavTabStyle';
 
 class Tabs extends React.Component {
     constructor(props){
@@ -12,7 +13,7 @@ class Tabs extends React.Component {
     }
     render() {
         return (
-            <nav className="d-flex pl-5" style={{ background: '#fff' }}>
+            <NavTabStyle className="d-flex pl-4">
                {this.props.tabList.map(tab => (
                     <Tab
                         key={tab.id}
@@ -21,7 +22,7 @@ class Tabs extends React.Component {
                         isCurrent={(this.props.currentTab === tab.id)}
                     />
                 ))}
-            </nav>
+            </NavTabStyle>
         );
     }
 }

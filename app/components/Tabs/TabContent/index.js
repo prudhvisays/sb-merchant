@@ -44,25 +44,28 @@ constructor(props) {
       <div key={i._id}>
         <div
           className="title row"
-          onClick={this.click.bind(null, i._id)}
-        >
-         <span className="col-3">
-             #{i.id}
-         </span>
-         <AccordStyle status={i.status} className="col-3 title-text">
-           {i.status}
-         </AccordStyle>
+          onClick={this.click.bind(null, i._id)}>
+          <div className="col-12" style={{ padding: 0 }}>
+            <div className="d-flex flex-row">
+              <div className="col-md-3 col-sm-4">
+                #{i.id}
+              </div>
+              <AccordStyle status={i.status} className="col-md-3 col-sm-4 title-text">
+                {i.status}
+              </AccordStyle>
 
-          <span className="col-3 title-text">
-            <div className="ink-flex vertical">
-              <div style={{ margin: '0' }}>{i.pilot ? i.pilot.user ? i.pilot.user.firstName : '-' : '-'}</div>
-              <div style={{ fontSize: '0.8rem', margin: '0' }}>({i.pilot ? i.pilot.user ? i.pilot.user.mobileNumber : '-' : '-'})</div>
+              <div className="col-md-3 col-sm-4 title-text">
+                <div className="ink-flex vertical">
+                  <div style={{ margin: '0' }}>{i.pilot ? i.pilot.user ? i.pilot.user.firstName : '-' : '-'}</div>
+                  <div style={{ fontSize: '0.8rem', margin: '0' }}>({i.pilot ? i.pilot.user ? i.pilot.user.mobileNumber : '-' : '-'})</div>
+                </div>
+              </div>
+
+              <div className="col-md-3 hidden-md-down title-text">
+                {i.final_cost}
+              </div>
             </div>
-          </span>
-
-          <span className="col-3 title-text">
-           {i.final_cost}
-         </span>
+          </div>
        </div>
           { i.open && <div className={i.open
          ? "content content-open"

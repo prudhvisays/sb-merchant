@@ -31,7 +31,6 @@ const LoadingSpinner = styled.div`
   position: absolute;
   width: calc(100% - 200px);
   color: ${(props) => props.color};
-  padding: 0 100px;
   text-align: center;
   .cs-note {
     position: relative;

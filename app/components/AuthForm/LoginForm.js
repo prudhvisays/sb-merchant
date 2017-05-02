@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const LoginForm = styled.section`
-width: 28vw;
-height: 55vh;
+width: 320px;
+height: 420px;
 position: relative;
 top: -3em;
 border-radius: 4px;

@@ -3,6 +3,9 @@ import styled from 'styled-components';
 const AddOrderStyle = styled.section`
     background: #fff;
     height: 89vh;
+    @media (max-width: 500px) {
+    overflow-y: scroll;
+  }
    input {
     border-radius: .142857143em
     box-shadow: 0 0.25em 0.5em 0 rgba(46,61,73,.12);
@@ -12,6 +15,21 @@ const AddOrderStyle = styled.section`
     }
     &:hover {
     box-shadow: 0 0.125em 0.5em 0 rgba(70, 187, 182,.06);
+   }
+   }
+   .actionButton {
+   width: 100%;
+   @media (max-width: 500px) {
+    margin-top: 1em;
+      position: fixed;
+      bottom: 0em;
+      left: 0em;
+      background: #fff;
+      padding: 0.3em 0;
+      .d-flex {
+        justify-content: center !important;
+      }
+  }
    }
 `;
 

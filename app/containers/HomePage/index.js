@@ -74,10 +74,23 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 
   render() {
     const { compressed, pilotState, orderDetails, groupDisplay, addTask } = this.state;
+    const buttonStyle = {
+      width: '100%',
+      position: 'fixed',
+      background: '#6bc9c5',
+      color: '#fff',
+      fontSize: '1.5rem',
+      fontWeight: '600',
+      bottom: 0,
+      lineHeight: '3rem',
+      textAlign: 'center',
+      cursor: 'pointer',
+      marginTop: '5em'
+    }
     return (
       <section style={{ height: '89vh', overflow: 'hidden' }} ref={(comp) => { this.merDom = comp; }}>
             <div className="row">
-                <div className="col-8" style={{ padding: 0}}>
+                <div className="col-md-8 col-sm-12" style={{ padding: 0}}>
                     { !this.props.addOrderComponent ? <Tabs
                             orderList={this.props.orderList}
                             openAccordion={this.props.openAccordion}
@@ -95,7 +108,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                             clearForm={this.props.clearForm}
                         />}
                 </div>
-                <div className="col-4" style={{ padding: '0 1em 0 0'}}>
+                <div className="col-md-4 hidden-sm-down" style={{ padding: '0 1em 0 0'}}>
                     <Map
                         triggerComponent={this.props.triggerAddOrderComponent}
                         addOrderComponent={this.props.addOrderComponent}
@@ -105,6 +118,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                         orderList={this.props.orderList}
                     /></div>
             </div>
+        {!this.props.addOrderComponent &&<button className="hidden-md-up" style={buttonStyle} onClick={this.props.triggerAddOrderComponent}>Create Order</button>}
       </section>
     );
   }

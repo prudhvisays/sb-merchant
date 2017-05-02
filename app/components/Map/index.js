@@ -5,6 +5,7 @@ import AddButton from './AddButton';
 import auth from '../../Api/Auth';
 import MapStyle from './MapStyle';
 import PilotIcon from '../../Assets/markers/pilot.png';
+
 export default class PathHistory extends React.Component { // eslint-disable-line react/prefer-stateless-function
     constructor(props) {
         super(props);
@@ -47,7 +48,7 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
         className: 'my-div-icon'
       })
         const orderMarkers = orderList ? orderList.map((list) => {
-            return ( <Marker icon={myIcon} key={list._id} position={list.status !== 'COMPLETED' && list.pilot_movement.coordinates[0] ? list.pilot_movement.coordinates.slice(-1)[0].reverse() : [0,0]}>
+            return ( (list.status !== 'COMPLETED' && list.pilot_movement.coordinates[0]) && <Marker icon={myIcon} key={list._id} position={list.pilot_movement.coordinates[0] ? list.pilot_movement.coordinates[0].reverse() : [0,0]}>
               <Popup>
                 <span>{list.pilot ? list.pilot.user ? list.pilot.user.firstName : '-' : '-'}</span>
               </Popup>

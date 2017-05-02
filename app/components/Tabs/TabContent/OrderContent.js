@@ -12,22 +12,26 @@ export default class OrderContent extends React.Component { //eslint-disable-lin
             <OrderContentStyle className="row">
                 <div className="col-12">
                     <div className="d-flex flex-row">
-                        <div className="col-5 d-flex flex-column">
+                        <div className="col-md-5 hidden-md-down d-flex flex-column">
                             <div className="content-subtitle">Title</div>
                             <div className="content-title">{data.title}</div>
                         </div>
-                        <div className="col-5 d-flex flex-column">
+                        <div className="col-md-5 hidden-lg-up d-flex flex-column">
+                          <div className="content-subtitle">Cost</div>
+                          <div className="content-title">{data.final_cost}</div>
+                        </div>
+                        <div className="col-md-5 d-flex flex-column">
                             <div className="content-subtitle">Final Kms</div>
                             <div className="content-title">{data.distance_picked_to_delivery_in_meters}</div>
                         </div>
-                        <div className="col-2 d-flex flex-column">
+                        <div className="col-md-2 d-flex flex-column">
                             <div className="content-subtitle">Payment Type</div>
                             <div className="content-title">{data.paymentType}</div>
                         </div>
                     </div>
                     <hr/>
                     <div className="d-flex flex-row">
-                        <div className="col-5 d-flex flex-column">
+                        <div className="col-md-5 d-flex flex-column">
                             <div className="d-flex flex-column">
                                 <div>
                                     <div className="content-subtitle">Name</div>
@@ -43,7 +47,7 @@ export default class OrderContent extends React.Component { //eslint-disable-lin
                                 </div>
                             </div>
                         </div>
-                        <div className="col-7 d-flex flex-column">
+                        <div className="col-md-7 d-flex flex-column">
                             <div className="content-subtitle">Address</div>
                             <div className="content-title">{data.to_address}</div>
                         </div>

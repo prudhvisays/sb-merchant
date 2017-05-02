@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TabStyle from './TabStyle';
+
 class Tab extends React.Component {
     constructor(props){
         super(props);

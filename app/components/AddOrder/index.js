@@ -69,11 +69,15 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
             clearForm,
             pickupChange
         } = this.props
+
+    const actionButton = {
+
+      }
         return (
             <AddOrderStyle className="container" style={{ padding: '1em 3em'}}>
               { !stateAddTask.request ? (<form onSubmit={() => {postAddTask(stateAddTask)}}><div className="form">
                     <div className="row">
-                        <div className="col-6" style={{ padding: '0 1em 0 0' }}>
+                        <div className="col-md-6" style={{ padding: '0 1em 0 0' }}>
                             <OrderDetails
                                 addTaskInfo={addTaskInfo}
                                 deliveryChange={deliveryChange}
@@ -81,7 +85,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                 deliveryCord={deliveryCord}
                             />
                         </div>
-                        <div className="col-6" style={{ padding: 0 }}>
+                        <div className="col-md-6" style={{ padding: 0 }}>
                             <div className="p-3" style={{ height: '100%' }}>
                                 <div className="form-group mt-1"><label>Delivery Time</label>
                                 <DeliveryTime
@@ -130,9 +134,9 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                                 </div>
                             </div>
                         </div>
-                        <div style={{ width: '100%', marginTop: '1em' }}>
+                        <div className="actionButton">
                             <div className="d-flex justify-content-end">
-                                <button type="button" className="btn btn-danger" style={{ marginLeft: '1em' }} onClick={() => {this.closeComponent()}}>Close</button>
+                                <button type="button" className="btn btn-danger" onClick={() => {this.closeComponent()}}>Close</button>
                                 <button type="button" className="btn btn-warning" style={{ marginLeft: '1em' }} onClick={clearForm}>Clear</button>
                                 <button type="submit" className="btn btn-primary" style={{ marginLeft: '1em' }} >Create Order</button>
                             </div>
@@ -141,7 +145,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                   </div></form>) : (<LoadingSpinner
                   className="ink-flex push-center cs-loader"
                   color={stateAddTask.addTaskStatus.statusColor}
-                  style={{ margin: '3em 8em'}}
+                  style={{ padding: '8em'}}
                 >
                   <div className="cs-loader-inner">
                     <label>	●</label>
