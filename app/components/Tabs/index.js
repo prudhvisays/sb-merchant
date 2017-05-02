@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Tabs from './Tabs';
 import TabContent from './TabContent';
+import TabStyles from './TabStyles';
 
 const tabList = [
     { 'id': 1, 'name': 'Orders'},
@@ -27,7 +28,7 @@ class OrderTabs extends React.Component {
     render() {
         const{ orderList, openAccordion } = this.props
         return (
-            <div style={{ height: '89vh', overflow: 'hidden' }}>
+            <TabStyles style={{ height: '89vh', overflow: 'hidden' }}>
                <Tabs
                    tabList={this.state.tabList}
                    currentTab={this.state.currentTab}
@@ -46,10 +47,10 @@ class OrderTabs extends React.Component {
                     </div>
                 </div>
                 </div>
-                <div style={{ padding: '0 3em', overflowX: 'hidden', height: '75vh' }}>
+                <div className="accord">
                     <TabContent data={orderList} openAccordion={openAccordion} />
                 </div>
-            </div>
+            </TabStyles>
         );
     }
 }
