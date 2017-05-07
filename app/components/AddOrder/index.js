@@ -145,7 +145,7 @@ class AddOrder extends React.Component { // eslint-disable-line react/prefer-sta
                   </div></form>) : (<LoadingSpinner
                   className="ink-flex push-center cs-loader"
                   color={stateAddTask.addTaskStatus.statusColor}
-                  style={{ padding: '8em'}}
+                  style={{ padding: '6.5em'}}
                 >
                   <div className="cs-loader-inner">
                     <label>	●</label>
