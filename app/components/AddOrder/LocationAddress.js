@@ -10,6 +10,7 @@ export default class LocationAddress extends React.Component { //eslint-disable-
         this.initAutocomplete = this.initAutocomplete.bind(this);
         this.searchBoxPlaces = this.searchBoxPlaces.bind(this);
         this.emitChange = this.emitChange.bind(this);
+        this.toLandmark = this.toLandmark.bind(this);
     }
     componentDidMount() {
         this.initAutocomplete();
@@ -55,6 +56,10 @@ export default class LocationAddress extends React.Component { //eslint-disable-
             window.alert('We did not find any places matching that search!'); //eslint-disable-line
         }
     }
+    toLandmark(e) {
+      const { delivery } = this.props.stateAddTask;
+      this.emitChange({ ...delivery, [e.target.name]: e.target.value });
+    }
     emitChange(newFormState) {
         this.props.deliveryChange(newFormState);
     }
@@ -79,6 +84,8 @@ export default class LocationAddress extends React.Component { //eslint-disable-
                        id="orderAddress"
                        placeholder="Enter Address"
                        required="required"
+                       name="to_landmark"
+                       onChange={this.toLandmark}
                    />
                </div>
             </div>

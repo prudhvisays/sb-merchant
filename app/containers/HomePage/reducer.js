@@ -26,6 +26,7 @@ const initialState = {
       to_phone: '',
       to_email: '',
       to_address: '',
+      to_landmark: '',
       to_date: '',
     },
     taskInfo:{

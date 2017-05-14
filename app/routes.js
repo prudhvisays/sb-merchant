@@ -56,49 +56,24 @@ export default function createRoutes(store) {
           importModules.catch(errorLoading);
         },
       },
-      // {
-      //   onEnter: redirectToLogin,
-      //   path: '/franchise',
-      //   name: 'franchise',
-      //   getComponent(nextState, cb) {
-      //     const importModules = Promise.all([
-      //     import('containers/Franchise/reducer'),
-      //     import('containers/Franchise/sagas'),
-      //     import('containers/Franchise'),
-      //   ]);
-      //
-      //     const renderRoute = loadModule(cb);
-      //
-      //     importModules.then(([reducer, sagas, component]) => {
-      //       injectReducer('franchise', reducer.default);
-      //       injectSagas(sagas.default);
-      //       renderRoute(component);
-      //     });
-      //
-      //     importModules.catch(errorLoading);
-      //   },
-      // },
-      // {
-      //   onEnter: redirectToDashboard,
-      //   path: '/login',
-      //   name: 'login',
-      //   getComponent(nextState, cb) {
-      //     const importModules = Promise.all([
-      //     import('containers/AuthPage/reducer'),
-      //     import('containers/AuthPage'),
-      //   ]);
-      //
-      //     const renderRoute = loadModule(cb);
-      //
-      //     importModules.then(([reducer, component]) => {
-      //       injectReducer('auth', reducer.default);
-      //
-      //       renderRoute(component);
-      //     });
-      //
-      //     importModules.catch(errorLoading);
-      //   },
-      // },
+      {
+        onEnter: redirectToLogin,
+        path: '/profile',
+        name: 'profile',
+        getComponent(nextState, cb) {
+          const importModules = Promise.all([
+          import('containers/ProfilePage'),
+        ]);
+
+          const renderRoute = loadModule(cb);
+
+          importModules.then(([component]) => {
+            renderRoute(component);
+          });
+
+          importModules.catch(errorLoading);
+        },
+      },
       {
         onEnter: redirectToDashboard,
         path: '/order/order-status/:slug',

@@ -68,6 +68,7 @@ const realData = {
       to_phone: delivery.to_phone,
       to_email: delivery.to_email,
       to_address: delivery.to_address,
+      to_landmark: delivery.to_landmark,
       paymentType: taskInfo.paymentType,
       status: 'PENDING',
       to_date_time: dates.deliverydate(),

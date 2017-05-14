@@ -4,6 +4,7 @@ import { LOCATION_CHANGE, push } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import auth from '../../Api/Auth';
 import * as actions from '../HomePage/actions';
+import { userRole } from '../../Api/ApiConstants';
 
 export function* authorize({ username, password, userRole }) {
   yield put({ type: 'SENDING_REQUEST', sending: true });
@@ -47,8 +48,9 @@ export function* loginFlow() {
     if (winner.auth) {
       yield put({ type: 'SET_AUTH', newAuthState: true });
       yield put({ type: 'CHANGE_FORM', newFormState: { username: '', password: '' } });
-      const OneSignal = window.OneSignal || [];
-      OneSignal.push(['sendTags', { manager: 'ADMIN' }]);
+      // const OneSignal = window.OneSignal || [];
+      // OneSignal.push(['sendTags', userRole() ]);
+      // console.log(userRole());
       yield put(push('/'));
     } else if (winner.logout) {
       yield put({ type: 'SET_AUTH', newAuthState: false });
