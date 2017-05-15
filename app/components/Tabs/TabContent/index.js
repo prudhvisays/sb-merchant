@@ -69,10 +69,10 @@ constructor(props) {
             </div>
           </div>
        </div>
-        <ReactCSSTransitionGroup transitionName="content" transitionEnterTimeout={550} transitionLeaveTimeout={10}>
+        <ReactCSSTransitionGroup transitionName="content" transitionEnterTimeout={550} transitionLeaveTimeout={180}>
           { selectedItem === i._id && <div className="content content-open"
         >
-          <div className= "content-text content-text-open"
+          <div className="content-text content-text-open"
           > {<OrderContent data={i}/>}
           </div>
         </div> }
