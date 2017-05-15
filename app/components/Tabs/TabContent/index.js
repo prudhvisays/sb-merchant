@@ -82,7 +82,7 @@ constructor(props) {
 
     return (
       <div className="accordion">
-        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={700} transitionLeaveTimeout={700}>
+        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={550} transitionLeaveTimeout={550}>
         {sections}
         </ReactCSSTransitionGroup>
       </div>
