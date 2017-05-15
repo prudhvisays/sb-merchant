@@ -95,6 +95,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                             orderList={this.props.orderList}
                             openAccordion={this.props.openAccordion}
                             tabSelection={this.props.tabSelection}
+                            selectedItem={this.props.selectedItem}
                         /> : <AddOrder
                             addTaskInfo={this.props.addTaskInfo}
                             deliveryChange={this.props.deliveryChange}
@@ -133,6 +134,7 @@ const mapStateToProps = createStructuredSelector({
     orderList: selectors.orderList(),
     orderStats: selectors.orderStats(),
     addOrderComponent: selectors.addOrderComponent(),
+    selectedItem: selectors.selectedItem(),
 });
 
 export function mapDispatchToProps(dispatch) {

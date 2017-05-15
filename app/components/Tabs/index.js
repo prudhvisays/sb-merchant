@@ -26,7 +26,7 @@ class OrderTabs extends React.Component {
         this.props.tabSelection(tab.name)
     }
     render() {
-        const{ orderList, openAccordion } = this.props
+        const{ orderList, openAccordion, selectedItem} = this.props
         return (
             <TabStyles style={{ height: '89vh', overflow: 'hidden' }}>
                <Tabs
@@ -48,7 +48,7 @@ class OrderTabs extends React.Component {
                 </div>
                 </div>
                 <div className="accord">
-                    <TabContent data={orderList} openAccordion={openAccordion} />
+                    <TabContent data={orderList} openAccordion={openAccordion} selectedItem={selectedItem}/>
                 </div>
             </TabStyles>
         );

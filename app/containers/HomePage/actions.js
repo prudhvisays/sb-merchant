@@ -230,3 +230,11 @@ export function tabSelection(data) {
       payload: data,
     }
 }
+
+// ORDER SELECTION ACCORDION
+export function selectedOrder(data) {
+  return {
+    type: 'SELECTED_ORDER',
+    payload: data,
+  }
+}

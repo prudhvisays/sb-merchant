@@ -51,6 +51,12 @@ const orderList = () => createSelector(
   homeData(),
   (tab,state) => filterOrders(tab,state.orderList.orders),
 );
+
+const selectedItem = () => createSelector(
+  homeData(),
+  (state) => state.orderList.selectedOrder
+)
+
 const statsLength = (lists, value) => {
   if(lists.length > 0) {
     return lists.filter((list) => {
@@ -91,4 +97,5 @@ export {
   orderStats,
   addOrderComponent,
   selectedTab,
+  selectedItem,
 };

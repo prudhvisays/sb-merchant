@@ -53,6 +53,7 @@ const initialState = {
     orders: [],
     date: '',
     error:'',
+    selectedOrder: '',
   },
   orderDetails: {
     orderId: '',
@@ -255,22 +256,22 @@ function homeReducer(state = initialState, action) {
 }
 
 function accordionOpen(state, action) {
-  const index = _.findIndex(state.orderList.orders, {
-    _id: action.payload
-  });
-  const newState = state.orderList.orders.slice();
-  if (state.orderList.orders[index]['open']) {
-    newState[index]['open'] = !state.orderList.orders[index]['open'];
-  } else {
-    newState.forEach((order) => order.open = false);
-    newState[index]['open'] = true;
-  }
-  return {
-    ...state,
-    orderList: {
-      ...state.orderList,
-      orders: newState,
-    },
-  };
+ if(action.payload === state.orderList.selectedOrder) {
+   return {
+     ...state,
+     orderList: {
+       ...state.orderList,
+       selectedOrder: ''
+     }
+   }
+ } else {
+   return {
+     ...state,
+     orderList: {
+       ...state.orderList,
+       selectedOrder: action.payload
+     }
+   }
+ }
 }
 export default homeReducer;

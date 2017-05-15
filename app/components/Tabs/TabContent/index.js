@@ -41,6 +41,7 @@ constructor(props) {
   }
 
 	render () {
+  const { selectedItem } = this.props;
     const sections = this.props.data && this.props.data.map((i) => (
       <div key={i._id}>
         <div
@@ -68,16 +69,14 @@ constructor(props) {
             </div>
           </div>
        </div>
-          { i.open && <div className={i.open
-         ? "content content-open"
-         : "content"}
+        <ReactCSSTransitionGroup transitionName="content" transitionEnterTimeout={350} transitionLeaveTimeout={10}>
+          { selectedItem === i._id && <div className="content content-open"
         >
-          <div className={i.open
-            ? "content-text content-text-open"
-            : "content-text"}
+          <div className= "content-text content-text-open"
           > {<OrderContent data={i}/>}
           </div>
         </div> }
+        </ReactCSSTransitionGroup>
       </div>
     ));
 
