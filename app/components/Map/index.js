@@ -4,7 +4,7 @@ import { Map, Marker, Popup, TileLayer, Path, Polyline } from 'react-leaflet';
 import AddButton from './AddButton';
 import auth from '../../Api/Auth';
 import MapStyle from './MapStyle';
-import PilotIcon from '../../Assets/markers/pilot.png';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class PathHistory extends React.Component { // eslint-disable-line react/prefer-stateless-function
     constructor(props) {
@@ -77,7 +77,11 @@ export default class PathHistory extends React.Component { // eslint-disable-lin
                 </Popup>
               </Marker> }
               {orderMarkers}
-                {!addOrderComponent &&<AddButton onClick={triggerComponent} style={{ width: '65%', textAlign: 'center' }}>Create Order</AddButton>}
+              <ReactCSSTransitionGroup transitionName="examples" transitionEnterTimeout={550} transitionLeaveTimeout={550}>
+                {!addOrderComponent &&
+                  <AddButton onClick={triggerComponent} style={{ width: '65%', textAlign: 'center' }}>Create Order</AddButton>
+                }
+              </ReactCSSTransitionGroup>
             </MapStyle>
         );
     }
