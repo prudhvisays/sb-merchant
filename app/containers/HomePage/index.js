@@ -107,6 +107,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
                             postAddTask={this.props.postAddTask}
                             triggerComponent={this.props.triggerAddOrderComponent}
                             clearForm={this.props.clearForm}
+                            addOrderComponent={this.props.addOrderComponent}
                         />}
                 </div>
                 <div className="col-md-4 hidden-sm-down" style={{ padding: '0 1em 0 0'}}>
