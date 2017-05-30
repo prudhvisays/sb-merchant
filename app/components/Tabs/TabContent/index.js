@@ -2,6 +2,7 @@ import React from 'react';
 import OrderContent from './OrderContent';
 import AccordStyle from './AccordStyle';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import './Accord.css';
 
 export default class TopList extends React.Component { //eslint-disable-line
 constructor(props) {
