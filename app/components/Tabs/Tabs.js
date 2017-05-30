@@ -19,7 +19,7 @@ class Tabs extends React.Component {
                         key={tab.id}
                         handleClick={() => { this.handleClick(tab); }}
                         name={tab.name}
-                        isCurrent={(this.props.currentTab === tab.id)}
+                        isCurrent={(this.props.currentTab === tab.name)}
                     />
                 ))}
             </NavTabStyle>

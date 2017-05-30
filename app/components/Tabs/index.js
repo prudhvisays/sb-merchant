@@ -21,17 +21,16 @@ class OrderTabs extends React.Component {
         this.changeTab = this.changeTab.bind(this);
     }
     changeTab(tab) {
-        console.log(tab)
         this.setState({ currentTab: tab.id })
         this.props.tabSelection(tab.name)
     }
     render() {
-        const{ orderList, openAccordion, selectedItem} = this.props
+        const{ orderList, openAccordion, selectedItem, selectedTab} = this.props
         return (
             <TabStyles style={{ height: '89vh', overflow: 'hidden' }}>
                <Tabs
                    tabList={this.state.tabList}
-                   currentTab={this.state.currentTab}
+                   currentTab={selectedTab}
                    changeTab={this.changeTab}
                />
                 <div style={{ background: '#eee',  boxShadow: '6px 6px 12px 0 rgba(46,61,73,0.15)', lineHeight: '2rem'}}>

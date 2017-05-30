@@ -53,7 +53,7 @@ constructor(props) {
               <div className="col-md-3 col-sm-4">
                 #{i.id}
               </div>
-              <div status={i.status} className="col-md-3 col-sm-4 title-text title-status">
+              <div className="col-md-3 col-sm-4 title-text title-status">
                 {i.status}
               </div>
 
