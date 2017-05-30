@@ -20,11 +20,11 @@ export default class OrderContent extends React.Component { //eslint-disable-lin
                           <div className="content-subtitle">Cost</div>
                           <div className="content-title">{data.final_cost}</div>
                         </div>
-                        <div className="col-md-4 d-flex flex-column">
+                        <div className="col-md-3 d-flex flex-column">
                             <div className="content-subtitle">Final Kms</div>
                             <div className="content-title">{data.distance_picked_to_delivery_in_meters}</div>
                         </div>
-                        <div className="col-md-2 d-flex flex-column">
+                        <div className="col-md-3 d-flex flex-column">
                             <div className="content-subtitle">Payment Type</div>
                             <div className="content-title">{data.paymentType}</div>
                         </div>
