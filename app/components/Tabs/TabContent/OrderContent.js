@@ -1,6 +1,5 @@
 import React from 'react';
 import OrderContentStyle from './OrderContentStyle';
-import './Accord.css';
 
 export default class OrderContent extends React.Component { //eslint-disable-line
     constructor(props) {

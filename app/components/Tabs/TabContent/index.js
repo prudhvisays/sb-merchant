@@ -1,7 +1,6 @@
 import React from 'react';
 import OrderContent from './OrderContent';
 import AccordStyle from './AccordStyle';
-import './Accord.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class TopList extends React.Component { //eslint-disable-line
@@ -42,8 +41,9 @@ constructor(props) {
 
 	render () {
   const { selectedItem } = this.props;
+  let colorBar;
     const sections = this.props.data && this.props.data.map((i) => (
-      <div key={i._id}>
+      <AccordStyle key={i._id} status={i.status}>
         <div
           className="title row"
           onClick={this.click.bind(null, i._id)}>
@@ -52,9 +52,9 @@ constructor(props) {
               <div className="col-md-3 col-sm-4">
                 #{i.id}
               </div>
-              <AccordStyle status={i.status} className="col-md-3 col-sm-4 title-text">
+              <div status={i.status} className="col-md-3 col-sm-4 title-text title-status">
                 {i.status}
-              </AccordStyle>
+              </div>
 
               <div className="col-md-3 col-sm-4 title-text">
                 <div className="ink-flex vertical">
@@ -77,7 +77,7 @@ constructor(props) {
           </div>
         </div> }
         </ReactCSSTransitionGroup>
-      </div>
+      </AccordStyle>
     ));
 
     return (

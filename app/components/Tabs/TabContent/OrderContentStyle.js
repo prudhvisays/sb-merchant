@@ -9,6 +9,7 @@ const OrderContentStyle = styled.div`
         font-size: 1rem;
         word-wrap: break-word;
     }
+    
  `;
 
 export default OrderContentStyle;
